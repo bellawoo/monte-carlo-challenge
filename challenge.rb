@@ -22,7 +22,8 @@ end
 
 class LoadedDice < Dice
   def roll
-    rand(1..@sides) + 1
+    if super + 1
+      # rand(1..@sides)+1
   end
 
   def but_really_is_it_loaded?
