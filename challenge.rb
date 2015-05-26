@@ -4,25 +4,30 @@ require 'minitest/autorun'
 # Implement these classes to get the specs below to pass
 class Dice
   def initialize sides
-    @sides = sides
+    @sides = sides.to_i
   end
 
   attr_reader :sides
 
   def roll
-    rand(1..:sides)
+    rand(1..@sides)
   end
 
   def loaded?
     return false
   end
+end
+
+
+
+class LoadedDice < Dice
+  def roll
+    rand(1..@sides) + 1
+  end
 
   def but_really_is_it_loaded?
     return true
   end
-end
-
-class LoadedDice
 end
 
 
