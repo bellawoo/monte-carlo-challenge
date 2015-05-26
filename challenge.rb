@@ -1,9 +1,13 @@
+require 'pry'
 require 'minitest/autorun'
-
-require './dice'
 
 # Implement these classes to get the specs below to pass
 class Dice
+  attr_reader :sides
+
+  def roll
+    rand(0..:sides)
+  end
 end
 
 class LoadedDice
@@ -39,7 +43,7 @@ class TestDice < MiniTest::Test
     dice = Dice.new 13
     assert !dice.loaded?
   end
-
+# binding.pry
 
   # Work on these last, if time permits
 
